@@ -10,10 +10,13 @@ def save_figure(name):
     if do_save:
         matplotlib.pyplot.savefig(fig_dir + name, bbox_inches='tight')
 
+# load in the attached txt file (which should have 2 columns of data corresponding to the z position and pore radius
 name = sys.argv[1]
 
+# call the poreplot function from the included python file
 poreplot(name)
 
+# saves the resulting plot 
 xlabel("Pore Radius (Å)",fontsize=18)
 ylabel("Distance along transport path (Å)",fontsize=18)
 xlim(0.5,4.0)
