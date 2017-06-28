@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# This program takes a coor file and psf as argument and generates a pore radius
+# This program takes a pdb/coor file and psf as argument and generates a pore radius
 # plot 
 
 # help text
-if [ $1 = "help" ]; then
-    echo "This script, when provided with the psf and coor files as arguments, generates the protein pdb, hole data and a plot. If you already have a pdb, you should use pdbhole."
+if [[ $1 = "help" ]]; then
+    echo This script, when provided with the psf and pdb/coor files as arguments, generates the protein pdb, hole data and a plot. If you already have a pdb of just the protein, you should use pdbhole.
     exit 
 fi
 
 # abort if no arguments received
 if [ -z "$1" ]; then
-    echo "No arguments given"
+    echo "No arguments given. Type 'fullhole help' for detailed instructions."
     exit
 fi
 
