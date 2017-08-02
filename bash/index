@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+   echo "You doof"
+   exit
+fi
+
+if [ -f "$1" ]; then
+   echo "Opening file $1"
+else
+   echo "Still a doof"
+   exit
+fi
+
+# count the number of lines in the file and iterate through this number
+count=$(cat $1 | wc -l) 
+
+for i in $(eval echo {0..$((count-1))} );
+do 
+#    read out each line in sequence and pipe it to 
+#    another command that appends the line number
+    j=$(($i+1))
+    sed -n $j\p $1 | sed s/$/" $i"/ >> tmp
+done
+cat tmp > $1
+rm tmp
